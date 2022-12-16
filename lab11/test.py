@@ -12,7 +12,7 @@ import pytest
         ('BUL', np.array([322, 534, 1021, 283, 236, 304, 288, 87])),
     ],
 )
-def test_students_per_year(lang: str, expected: np.ndarray[np.float32]):
+def test_students_per_year(lang: str, expected):
     data = ex1.load_dataset()
 
     students_per_year = ex1.students_per_year(data, lang)

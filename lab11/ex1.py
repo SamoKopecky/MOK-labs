@@ -1,20 +1,17 @@
 import numpy as np
 
 
-def load_dataset() -> np.ndarray[str]:
+def load_dataset():
     # read data set by lines
     with open("edu.txt", "r") as file:
         lines = file.readlines()
-
     data = []
-
     for line in lines[1:]:
         data.append(line.replace(":", "0").split())
-
     return np.array(data)
 
 
-def students_per_year(data: np.ndarray[str], lang: str) -> np.ndarray[np.float32]:
+def students_per_year(data, lang: str):
     """Count the total number of students per year.
 
     :param data: Data set loaded from 'edu.txt' file.
@@ -32,6 +29,7 @@ def students_per_year(data: np.ndarray[str], lang: str) -> np.ndarray[np.float32
 def main():
     ds = load_dataset()
     print(ds)
+
     attrs = np.transpose(ds)
     langs = set(attrs[1])
     langs.remove('TOTAL')
